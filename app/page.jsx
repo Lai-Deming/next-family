@@ -30,7 +30,7 @@ export default async function Page() {
                 className="transition-all duration-500 hover:scale-110 hover:-rotate-2"
                 width={500}
                 height={500}
-              ></Image>
+              />
             </Link>
           )
         })}

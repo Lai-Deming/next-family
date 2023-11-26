@@ -14,10 +14,10 @@ import { getAllCharacters } from '@/lib/characters'
 
 export const dynamicParams = false
 
-// export async function generateStaticParams() {
-//   const { characters } = await getAllCharacters()
-//   return characters.map(character => ({ slug: character.slug }))
-// }
+export async function generateStaticParams() {
+  const { characters } = await getAllCharacters()
+  return characters.map(character => ({ slug: character.slug }))
+}
 
 export async function getCharacterBySlug(slug) {
   const data = await fetch(`${endpoint}/characters/${slug}`)
@@ -39,7 +39,7 @@ export default async function Page({ params }) {
         <ul className="flex gap-1 text-sm">
           {character.occupations.map(item => {
             return (
-              <li key={item} className="p-2 text-gray-3 bg-gray-800 rounded-md">
+              <li key={item} className="p-2 text-gray-300 bg-gray-800 rounded-md">
                 {item}
               </li>
             )
@@ -59,7 +59,7 @@ export default async function Page({ params }) {
                 src={image}
                 alt=""
                 width={760}
-                hwight={435}
+                height={435}
               />
             </li>
           )
@@ -89,7 +89,7 @@ export default async function Page({ params }) {
             {character_qoutes.map((item, idx) => {
               return (
                 <li
-                  className="p-2 italic text-gray-400 border-1-4 border-green-400 rounded-md"
+                  className="p-2 italic text-gray-400 border-l-4 border-green-400 rounded-md"
                   key={item.idx}
                 >
                   {item.qoute}
