@@ -43,7 +43,7 @@ export const Answer = ({ answers, questionId }) => {
 
   return (
     <>
-      <ul className="grid grid-cols-2 gap-2 md:grid-cols-4">
+      <ul className="grid grid-cols-2 gap-2 text-white md:grid-cols-4">
         {answers.map(item => {
           const isLoading = selected === item && loading
           const isWrong =
