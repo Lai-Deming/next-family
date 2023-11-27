@@ -36,7 +36,7 @@ export const Answer = ({ answers, questionId }) => {
     }
 
     return () => {
-      console.log('cancellend!')
+      console.log('cancelled!')
       subscribed = false
     }
   }, [questionId, selected])
@@ -52,18 +52,30 @@ export const Answer = ({ answers, questionId }) => {
 
           return (
             <li key={item}>
-              <button disabled={data||loading} onClick={()=>setSelected(item)} className={cn('p-2 rounded-md items-center justify-between w-full flex text-sm font-semibold disabled:cursor-not-allowed transition-all', isLoading && 'animate-pulse', isWrong? 'bg-red-700':'bg-slate-800', isCorrect && 'outline text-green-500')}>
+              <button
+                disabled={data || loading}
+                onClick={() => setSelected(item)}
+                className={cn(
+                  'p-2 rounded-md items-center justify-between w-full flex text-sm font-semibold disabled:cursor-not-allowed transition-all',
+                  isLoading && 'animate-pulse',
+                  isWrong ? 'bg-red-700' : 'bg-slate-800',
+                  isCorrect && 'outline text-green-500',
+                )}
+              >
                 {item}
-                {isCorrect && <FaCheck/>}
-                {isWrong && <MdNearbyError/>}
+                {isCorrect && <FaCheck />}
+                {isWrong && <MdNearbyError />}
               </button>
             </li>
           )
         })}
       </ul>
-      {data?.random&&(
-        <Link href={`/quiz/${data.random}`} className='flex items-center gap-1 text-blue-400'>
-          <FiRepeat className='mt-1' />
+      {data?.random && (
+        <Link
+          href={`/quiz/${data.random}`}
+          className="flex items-center gap-1 text-blue-400"
+        >
+          <FiRepeat className="mt-1" />
           Do it again
         </Link>
       )}

@@ -11,7 +11,7 @@ import { Container } from '@/components'
 import { Answer } from '@/components/Answer'
 import { endpoint } from '@/utils/endpoint'
 
-async function getQuizQuestion(id) {
+export async function getQuizQuestion(id) {
   const data = await fetch(`${endpoint}/quiz/${id}`)
 
   if (!data.ok) {

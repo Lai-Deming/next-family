@@ -14,6 +14,6 @@ export async function GET() {
       randomQuestion: questions.data[random].id,
     })
   } catch (error) {
-    return NextResponse('Internal Server Error', { status: 500 })
+    return new NextResponse('Internal Server Error', { status: 500 })
   }
 }
